@@ -17,3 +17,12 @@ def create_placement(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def get_placement_by_id(request, id):
+    try:
+        placement = Placement.objects.get(id=id)
+        serializer = PlacementSerializer(placement)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    except Placement.DoesNotExist:
+        return Response({'error': 'Placement not found'}, status=status.HTTP_404_NOT_FOUND)

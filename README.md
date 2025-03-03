@@ -1,4 +1,4 @@
-USER MODULE
+# USER MODULE
 
 ## Cource Choices
 
@@ -13,7 +13,7 @@ USER MODULE
         ('economics', 'Economics'),
 }
     
-# APIs
+# User Module APIs
 
 ## /api/user/createuser/
 

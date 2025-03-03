@@ -24,9 +24,9 @@
     "last_name": "Doe"
 }
 
-# /api/user/list_all/
-# /api/user/view/{username}/
-# /api/user/edit/{username}/
+## /api/user/list_all/
+## /api/user/view/{username}/
+## /api/user/edit/{username}/
 
 {
     "email": "newemail@example.com",
@@ -34,4 +34,4 @@
     "last_name": "NewLastName",
 }
 
-# /api/user/delete/{username}/
+## /api/user/delete/{username}/

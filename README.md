@@ -1,3 +1,5 @@
+USER MODULE
+
 ## Cource Choices
 
 {
@@ -11,6 +13,7 @@
         ('economics', 'Economics'),
 }
     
+# APIs
 
 ## /api/user/createuser/
 
@@ -35,3 +38,16 @@
 }
 
 ## /api/user/delete/{username}/
+## /api/user/change_password/
+
+{
+    "old_password": "secure_password",
+    "new_password": "more_secure_password"
+}
+
+## api/user/login/
+
+{
+    "username": "new_student_aryan",
+    "password": "more_secure_password"
+}

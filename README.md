@@ -13,9 +13,9 @@
         ('economics', 'Economics'),
 }
     
-# User Module APIs
+## User Module APIs
 
-## /api/user/createuser/
+### /api/user/createuser/
 
 {
     "username": "new_student",
@@ -27,16 +27,16 @@
     "last_name": "Doe"
 }
 
-## api/user/login/
+### api/user/login/
 
 {
     "username": "new_student_aryan",
     "password": "password"
 }
 
-## /api/user/view/{username}/
+### /api/user/view/{username}/
 
-## /api/user/edit/{username}/
+### /api/user/edit/{username}/
 
 {
     "email": "newemail@example.com",
@@ -44,11 +44,45 @@
     "last_name": "NewLastName",
 }
 
-## /api/user/change_password/
+### /api/user/change_password/
 
 {
     "old_password": "secure_password",
     "new_password": "more_secure_password"
 }
 
-## /api/user/delete/{username}/
+### /api/user/delete/{username}/
+
+
+# PLACEMENT MODULE
+
+## Placement Module APIs
+
+### /api/placement/allplacements/
+
+### /api/placement/{id}/
+
+### /api/placement/{course}/
+
+### /api/placement/student/{username}/
+
+### /api/placement/company/{company}/
+
+### /api/placement/createplacements/
+
+{
+    "student": {username},
+    "company": "Google",
+    "package": 1200000,
+    "job_role": "Deputy Editor",
+}
+
+### /api/placement/edit/{id}/
+
+{
+    "company": "Amazon",
+    "package": 1300000,
+}
+
+### /api/placement/delete/{id}/
+

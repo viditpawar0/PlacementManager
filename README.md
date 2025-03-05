@@ -86,3 +86,54 @@
 
 ### /api/placement/delete/{id}/
 
+# TEST MODULE
+
+## Test Module APIs
+
+### /api/test/create/
+
+{
+"name": "Aptitude Test 1",
+"course": "computer_science",
+"description": "Basic aptitude test for placements",
+"syllabus": "Algebra, Probability, Logical Reasoning",
+"test_type": "aptitude",
+"duration": 60,
+"total_marks": 100,
+"date": "2025-05-15"
+}
+
+### /api/test/{test_id}/
+
+### /api/test/{course_name}/
+
+### /api/test/edit/{test_id}/
+
+{
+"name": "Updated Test Name",
+"description": "Updated test details"
+}
+
+### /api/test/delete/{test_id}/
+
+## Test Result Module APIs
+
+### /api/testresult/add/
+
+{
+"student_username": "new_student",
+"test": 1,
+"score": 80
+}
+
+### /api/testresult/student/{username}/
+
+### /api/testresult/test/{test_id}/
+
+### /api/testresult/edit/{result_id}/
+
+{
+"score": 90
+}
+
+### /api/testresult/top/{test_id}/

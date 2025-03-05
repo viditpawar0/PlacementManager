@@ -1,10 +1,11 @@
 from rest_framework import serializers
 from .models import Placement
+from users.models import CustomUser
 
 class PlacementSerializer(serializers.ModelSerializer):
-    # Including student's username for better readability (optional)
-    # student_username = serializers.CharField(source='student.username', read_only=True)
-    
+    student = serializers.SlugRelatedField(
+        queryset=CustomUser.objects.filter(role='student'), slug_field='username'
+    )
     class Meta:
         model = Placement
         fields = '__all__'

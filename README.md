@@ -27,8 +27,15 @@
     "last_name": "Doe"
 }
 
-## /api/user/list_all/
+## api/user/login/
+
+{
+    "username": "new_student_aryan",
+    "password": "password"
+}
+
 ## /api/user/view/{username}/
+
 ## /api/user/edit/{username}/
 
 {
@@ -37,7 +44,6 @@
     "last_name": "NewLastName",
 }
 
-## /api/user/delete/{username}/
 ## /api/user/change_password/
 
 {
@@ -45,9 +51,4 @@
     "new_password": "more_secure_password"
 }
 
-## api/user/login/
-
-{
-    "username": "new_student_aryan",
-    "password": "more_secure_password"
-}
+## /api/user/delete/{username}/

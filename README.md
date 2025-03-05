@@ -139,3 +139,31 @@
 }
 
 ### **GET** /api/testresult/top/{test_id}/
+
+# INTERNSHIP MODULE
+
+## Internship Module APIs
+
+### POST /api/internship/add/
+{
+    "student": "new_student",
+    "company": "Microsoft",
+    "role": "Software Intern",
+    "start_date": "2025-06-01",
+    "end_date": "2025-09-01",
+    "description": "Worked on developing internal tools"
+}
+
+### GET /api/internship/all/{username}/
+
+### GET /api/internship/details/{internship_id}/
+
+### GET /api/internship/course/{course_pursuing}/
+
+### PUT /api/internship/edit/{internship_id}/
+{
+    "role": "Backend Developer Intern",
+    "company": "Microsoft"
+}
+
+### DELETE /api/internship/delete/{internship_id}/

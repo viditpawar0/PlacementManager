@@ -42,10 +42,11 @@ urlpatterns = [
 
     #cources 
     path('course/add/', add_course, name="add a course"),
-    path('course/all/<str:student_id>/', get_student_courses, name='get_cources_by_studentid'),
+    path('course/all/<str:username>/', get_student_courses, name='get_courses_by_student_username'),
     path('course/<int:course_id>/', get_course_details, name='get_course_details'),
     path('course/edit/<int:course_id>/', edit_course, name='edit_course'),
-    
+    path('course/course/<str:course_pursuing>/', get_courses_by_course_pursuing, name='get_internships_by_course'),   
+
     #internships
     path('internship/add/', add_internship, name="add_internship"),
     path('internship/all/<str:username>/', get_student_internships, name='get_internships_by_studentid'),
@@ -53,6 +54,5 @@ urlpatterns = [
     path('internship/edit/<int:internship_id>/', edit_internship, name='edit_internship'),
     path('internship/course/<str:course_pursuing>/', get_internships_by_course, name='get_internships_by_course'),
 
-    
 
 ]

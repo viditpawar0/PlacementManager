@@ -5,20 +5,18 @@ from .models import Internship
 from .serializers import InternshipSerializer
 from users.models import CustomUser
 
-# STUDENT VIEWS
-
 @api_view(['POST'])
 def add_internship(request):
     serializer = InternshipSerializer(data=request.data)
     if serializer.is_valid():
-        serializer.save()
+        serializer.save() 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
-def get_student_internships(request, student_id):
+def get_student_internships(request, username):
     try:
-        student = CustomUser.objects.get(id=student_id, role='student')
+        student = CustomUser.objects.get(username=username, role='student')
         internships = Internship.objects.filter(student=student)
         serializer = InternshipSerializer(internships, many=True)
         return Response(serializer.data)
@@ -46,3 +44,11 @@ def edit_internship(request, internship_id):
         serializer.save()
         return Response(serializer.data)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def get_internships_by_course(request, course_pursuing):
+    students = CustomUser.objects.filter(course_pursuing=course_pursuing, role='student')
+    internships = Internship.objects.filter(student__in=students)
+    
+    serializer = InternshipSerializer(internships, many=True)
+    return Response(serializer.data)

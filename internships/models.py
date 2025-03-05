@@ -2,7 +2,7 @@ from django.db import models
 from users.models import CustomUser
 
 class Internship(models.Model):
-    student = models.ForeignKey(CustomUser, on_delete=models.CASCADE, limit_choices_to={'role': 'student'})
+    student = models.ForeignKey(CustomUser, on_delete=models.CASCADE, to_field="username")
     company_name = models.CharField(max_length=255)
     role = models.CharField(max_length=255)
     start_date = models.DateField()

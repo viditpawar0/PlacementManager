@@ -156,7 +156,7 @@
 
 ### GET /api/internship/all/{username}/
 
-### GET /api/internship/details/{internship_id}/
+### GET /api/internship/{internship_id}/
 
 ### GET /api/internship/course/{course_pursuing}/
 
@@ -166,4 +166,27 @@
     "company": "Microsoft"
 }
 
-### DELETE /api/internship/delete/{internship_id}/
+# COURSES MODULE
+
+## Courses Module APIs
+
+### POST /api/course/add/
+{
+    "student": {username},
+    "name": "Machine Learning Basics",
+    "description": "Introduction to ML concepts",
+    "duration": 40,
+    "certification": true
+}
+
+### GET /api/course/all/{username}/
+
+### GET /api/course/{course_id}/
+
+### GET /api/course/course/{course_pursuing}/
+
+### PUT /api/course/edit/{course_id}/
+{
+    "name": "Advanced Machine Learning",
+    "duration": 45
+}

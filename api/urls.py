@@ -23,13 +23,23 @@ urlpatterns = [
     path('user/delete/<str:username>/', delete_user_by_username, name='delete_user_by_username'),
     path('user/change_password/<str:username>/', change_password, name='change_password'),
     path('user/login/', login_user, name='login'),
-    # Test URLs
     
+    # Test URLs
     path('test/create/', create_test, name='create_test'),
-    path('test/all/<str:course_name>/', get_tests_by_course, name='get_tests_by_course'),
     path('test/<int:test_id>/', get_test_by_id, name='get_test_by_id'),
-    # Test Result URLs
+    path('test/<str:course_name>/', get_tests_by_course, name='get_tests_by_course'),
+    
+    # Test Management
+    path('test/edit/<int:test_id>/', edit_test, name='edit_test'),
+    path('test/delete/<int:test_id>/', delete_test, name='delete_test'),
+
+    # Test Results
     path('testresult/add/', add_test_result, name='add_test_result'),
+    path('testresult/student/<str:username>/', get_results_by_student, name='get_results_by_student'),
+    path('testresult/test/<int:test_id>/', get_results_by_test, name='get_results_by_test'),
+    path('testresult/edit/<int:result_id>/', edit_test_result, name='edit_test_result'),
+    path('testresult/top/<int:test_id>/', get_top_performers, name='get_top_performers'),
+
 
     #cources 
     path('course/add/', add_course, name="add a course"),

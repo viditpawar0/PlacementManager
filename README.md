@@ -1,3 +1,46 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# Step 1: Clone the Repository
+# Open your terminal and run:
+# git clone https://github.com/AwwwRyan/PlacementManager.git
+# cd PlacementManager
+
+# Step 2: Create a Virtual Environment (Recommended)
+# It’s best to use a virtual environment to manage dependencies:
+# python -m venv venv
+
+# Activate it:
+# Windows (Command Prompt)
+# venv\Scripts\activate
+
+# Windows (PowerShell)
+# venv\Scripts\Activate.ps1
+
+# Mac/Linux
+# source venv/bin/activate
+
+# Step 3: Install Dependencies
+# pip install -r requirements.txt
+
+# Step 4: Run Database Migrations
+# Django needs migrations to set up the database schema:
+# python manage.py makemigrations
+# python manage.py migrate
+
+# Step 5: Create a Superuser (For Admin Panel)
+# If you need admin access, create a superuser:
+# python manage.py createsuperuser
+# Follow the prompts to set a username, email, and password.
+
+# Step 6: Run the Django Development Server
+# Start the server:
+# python manage.py runserver
+
+# Step 7: Test APIs Using Postman or Curl
+
+
 # USER MODULE
 
 ## Course Choices

@@ -7,20 +7,10 @@ from users.models import CustomUser
 
 @api_view(['POST'])
 def add_course(request):
-    student_username = request.data.get('student')
-    try:
-        student = CustomUser.objects.get(username=student_username, role='student')
-    except CustomUser.DoesNotExist:
-        return Response({'error': 'Student not found'}, status=status.HTTP_404_NOT_FOUND)
-
-    data = request.data.copy()
-    data['student'] = student.id
-
-    serializer = CourseSerializer(data=data)
+    serializer = CourseSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

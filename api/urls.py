@@ -4,6 +4,7 @@ from users.views import *
 from tests.views import *
 from courses.views import *
 from internships.views import *
+from prediction.views import predict_placement
 
 urlpatterns = [
     # Placement URLs
@@ -54,5 +55,5 @@ urlpatterns = [
     path('internship/edit/<int:internship_id>/', edit_internship, name='edit_internship'),
     path('internship/course/<str:course_pursuing>/', get_internships_by_course, name='get_internships_by_course'),
 
-
+    path('predict/', predict_placement, name='predict_placement'),
 ]

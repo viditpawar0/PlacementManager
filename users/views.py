@@ -31,7 +31,7 @@ def login_user(request):
         return JsonResponse({"error": "Invalid credentials"}, status=400)
 
     if user.password == password:
-        return JsonResponse({"userame": username})
+        return JsonResponse({"username": username, "role": user.role})
 
     return JsonResponse({"error": "Invalid credentials"}, status=400)
 

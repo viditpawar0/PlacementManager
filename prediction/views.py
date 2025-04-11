@@ -1,3 +1,4 @@
+import joblib
 from django.shortcuts import render
 import os
 import pickle
@@ -15,24 +16,8 @@ from sklearn.ensemble import RandomForestClassifier  # or whatever model you're 
 # Load the model when the server starts
 model_path = os.path.join(settings.BASE_DIR, 'prediction', 'ml_model', 'model.pkl')
 try:
-    print(f"Attempting to load model from: {model_path}")
-    print(f"File exists: {os.path.exists(model_path)}")
-    with open(model_path, 'rb') as model_file:
-        loaded_data = pickle.load(model_file)
-        print(f"Loaded data type: {type(loaded_data)}")
-        print(f"Loaded data content: {loaded_data}")
-        
-        # Create and train a simple model (you should replace this with your actual trained model)
-        # This is just a placeholder model for demonstration
-        model = RandomForestClassifier()
-        X = np.array([
-            [8.5, 2, 3, 5, 75, 4],  # Sample positive case
-            [6.0, 0, 1, 2, 60, 2],  # Sample negative case
-        ])
-        y = np.array([1, 0])  # 1 for placed, 0 for not placed
-        model.fit(X, y)
-        loaded_model = model
-        print("Created and trained a simple model")
+    loaded_model = joblib.load(model_path)
+    print("Loaded model")
         
 except Exception as e:
     print(f"Error loading model: {e}")
@@ -56,9 +41,11 @@ def predict_placement(request):
             float(serializer.validated_data['cgpa']),
             float(serializer.validated_data['internships']),
             float(serializer.validated_data['projects']),
-            float(serializer.validated_data['technical_skills']),
+            float(serializer.validated_data['workshops_certifications']),
             float(serializer.validated_data['aptitude_test_score']),
-            float(serializer.validated_data['soft_skills'])
+            float(serializer.validated_data['soft_skills']),
+            float(serializer.validated_data['extracurricular_activities']),
+            float(serializer.validated_data['placement_training'])
         ]
         
         print(f"Extracted features: {features}")
@@ -66,7 +53,7 @@ def predict_placement(request):
         try:
             sample_data = np.array([features])
             print(f"Making prediction with data: {sample_data}")
-            
+
             predicted_class = loaded_model.predict(sample_data)[0]
             predicted_probability = loaded_model.predict_proba(sample_data)[0][1]
             
